@@ -52,3 +52,9 @@ Tecnologie Consigliate:
 ## Routes
 - register User (POST)
     http://localhost:3333/api/auth/register
+{
+    "firstName": "test",
+    "lastName" : "-test",
+    "email": "test@hotmail.com",
+    "password": "password"
+}
