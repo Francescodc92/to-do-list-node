@@ -1,8 +1,10 @@
-import express from 'express';
+import express, { json, Request, Response } from 'express';
 
 const app = express();
 
-app.get('/', (req,res)=> res.send('running'));
+app.use(json());
+
+app.get('/', (req:Request,res:Response)=> res.send('running'));
 
 const port = process.env.PORT;
 app.listen(port, () => {
