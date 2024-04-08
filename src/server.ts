@@ -1,15 +1,21 @@
-import express, { json, Request, Response } from 'express';
+import express, {Express, json, Request, Response } from 'express';
 import { rootRouter } from './routes/routeIndex';
-import { errorHandler } from './error-handler';
 import errorMiddleware from './middleware/error-middleware';
+import { User } from '@prisma/client';
 
-const app = express();
+const app:Express = express();
 
 app.use(json());
+
+declare global {
+    namespace Express {
+        interface Request {
+            user?: User;
+        }
+    }
+}
+
 app.use('/api', rootRouter);
-
-
-app.get('/', (req:Request,res:Response)=> res.send('running'));
 
 app.use(errorMiddleware)
 const port = process.env.PORT;

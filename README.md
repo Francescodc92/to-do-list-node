@@ -68,3 +68,13 @@ Tecnologie Consigliate:
     "email": "test@hotmail.com",
     "password": "password"
 }
+
+- create activity (POST) ---- (=> RES {activity})
+
+   http://localhost:3333/api/auth/login
+   ----- ADD USER TOKEN Authorization: token login
+{
+    "title": "test",
+    "status":"TODO",
+    "description":"descrizione test"  
+}

@@ -19,3 +19,15 @@ Content-Type: application/json
     "email": "francesco@hotmail.com",
     "password": "password"
 }
+
+
+###create Activities
+POST {{baseUrl}}/api/activities
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcxMjYxNzQ4OH0.BEfF4d1eoeyjHYNrPsz4OAU7qy7l8z80E7e6dd0YQ0s
+
+{
+    "title": "test-2",
+    "status":"TODO",
+    "description":"descrizione test-12"  
+}
