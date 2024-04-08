@@ -5,34 +5,34 @@ Il Gestore di Attività è un'applicazione web che consente agli utenti di crear
 Funzionalità Principali:
 
     Registrazione e Accesso Utente:
-        Gli utenti devono poter registrarsi creando un account con un'email e una password.
-        Gli utenti registrati possono accedere all'applicazione utilizzando le loro credenziali.
+      [X]  Gli utenti devono poter registrarsi creando un account con un'email e una password.
+      [X] Gli utenti registrati possono accedere all'applicazione utilizzando le loro credenziali.
 
     Dashboard Principale:
         Dopo l'accesso, gli utenti vengono reindirizzati a una dashboard principale dove possono visualizzare i propri elenchi di attività.
 
     Creazione di Attività:
-        Gli utenti possono aggiungere nuove attività specificando un titolo, una descrizione e una data di scadenza opzionale.
+      [] Gli utenti possono aggiungere nuove attività specificando un titolo, una descrizione e una data di scadenza opzionale.
 
     Visualizzazione delle Attività:
-        Gli utenti possono visualizzare tutte le loro attività presenti nell'elenco.
-        Le attività devono essere ordinate per data di scadenza, con quelle più vicine alla scadenza visualizzate per prime.
+       [] Gli utenti possono visualizzare tutte le loro attività presenti nell'elenco.
+       [] Le attività devono essere ordinate per data di scadenza, con quelle più vicine alla scadenza visualizzate per prime.
 
     Aggiornamento delle Attività:
-        Gli utenti possono segnare un'attività come completata o modificarne i dettagli come titolo, descrizione o data di scadenza.
+       [] Gli utenti possono segnare un'attività come completata o modificarne i dettagli come titolo, descrizione o data di scadenza.
 
     Eliminazione delle Attività:
-        Gli utenti possono eliminare un'attività dall'elenco.
+       [] Gli utenti possono eliminare un'attività dall'elenco.
 
     Ricerca di Attività:
-        Gli utenti possono cercare attività per titolo o data di scadenza.
+       [] Gli utenti possono cercare attività per titolo o data di scadenza.
 
     Filtri:
-        Gli utenti possono filtrare le attività per stato (completate/non completate) o data di scadenza.
+       [] Gli utenti possono filtrare le attività per stato (completate/non completate) o data di scadenza.
 
     Autenticazione e Sicurezza:
-        Le password degli utenti devono essere crittografate prima di essere memorizzate nel database.
-        Le rotte dell'applicazione devono essere protette, consentendo l'accesso solo agli utenti autenticati.
+       [X] Le password degli utenti devono essere crittografate prima di essere memorizzate nel database.
+       [] Le rotte dell'applicazione devono essere protette, consentendo l'accesso solo agli utenti autenticati.
 
     Persistenza dei Dati:
 
@@ -50,11 +50,21 @@ Tecnologie Consigliate:
 
 
 ## Routes
-- register User (POST)
+- register User (POST) ---- (=> RES {user})
     http://localhost:3333/api/auth/register
 {
     "firstName": "test",
     "lastName" : "-test",
+    "email": "test@hotmail.com",
+    "password": "password"
+}
+
+
+
+- login User (POST)  ---- (=> RES {user, token})
+
+    http://localhost:3333/api/auth/login
+{
     "email": "test@hotmail.com",
     "password": "password"
 }
