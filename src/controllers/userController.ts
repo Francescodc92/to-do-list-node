@@ -1,10 +1,13 @@
 import {Request, Response} from 'express';
 import {z} from "zod";
-import { hashSync } from "bcrypt";
+import { compareSync, hashSync } from "bcrypt";
 import { prisma } from '../lib/prisma';
 import { BadRequestException } from '../_errors/bad-request';
 import { ErrorCode } from '../_errors/error-root';
+import { NotFoundException } from '../_errors/not-found';
+import * as jwt from 'jsonwebtoken';
 
+//register 
 export const register = async (req:Request, res:Response)=> {
     const CreateUserSchema = z.object({
         firstName: z.string().min(3),
@@ -32,4 +35,27 @@ export const register = async (req:Request, res:Response)=> {
 
     res.json({user});
    
+}
+
+// login
+export const login = async (req:Request, res:Response)=>{
+    const {email, password} = req.body;
+
+    let user = await prisma.user.findUnique({
+        where:{
+            email
+        }
+    })
+
+    if(!user)  {
+        throw new NotFoundException('User not found!', ErrorCode.USER_NOT_FOUND)
+    }
+
+    if(!compareSync(password, user.password)){
+        throw new BadRequestException('Incorrect password!', ErrorCode.INCORRECT_PASSWORD)
+    }
+
+    const token = jwt.sign({userId:user.id}, process.env.JWT_SECRET!);
+
+    return res.status(200).json({user, token});
 }

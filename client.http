@@ -10,3 +10,12 @@ Content-Type: application/json
     "email": "francesco@hotmail.com",
     "password": "password"
 }
+
+###Register User
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "francesco@hotmail.com",
+    "password": "password"
+}
