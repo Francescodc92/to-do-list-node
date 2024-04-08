@@ -1,8 +1,11 @@
 import express, { json, Request, Response } from 'express';
+import { rootRouter } from './routes/routeIndex';
 
 const app = express();
 
 app.use(json());
+app.use('/api', rootRouter)
+
 
 app.get('/', (req:Request,res:Response)=> res.send('running'));
 

@@ -48,3 +48,7 @@ Tecnologie Consigliate:
     bcrypt.js per la crittografia delle password degli utenti.
     JWT (JSON Web Tokens) per l'autenticazione basata su token.
 
+
+## Routes
+- register User (POST)
+    http://localhost:3333/api/auth/register
