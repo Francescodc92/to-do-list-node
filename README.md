@@ -9,14 +9,16 @@ Funzionalità Principali:
       [X] Gli utenti registrati possono accedere all'applicazione utilizzando le loro credenziali.
 
     Dashboard Principale:
-        Dopo l'accesso, gli utenti vengono reindirizzati a una dashboard principale dove possono visualizzare i propri elenchi di attività.
+       [] Dopo l'accesso, gli utenti vengono reindirizzati a una dashboard principale dove 
+       [] possono visualizzare i propri elenchi di attività.
 
     Creazione di Attività:
-      [] Gli utenti possono aggiungere nuove attività specificando un titolo, una descrizione e una data di scadenza opzionale.
+      [X] Gli utenti possono aggiungere nuove attività specificando un titolo, una descrizione e una data di scadenza opzionale.
 
     Visualizzazione delle Attività:
-       [] Gli utenti possono visualizzare tutte le loro attività presenti nell'elenco.
-       [] Le attività devono essere ordinate per data di scadenza, con quelle più vicine alla scadenza visualizzate per prime.
+       [X] Gli utenti possono visualizzare tutte le loro attività presenti nell'elenco.
+       [X] Le attività devono essere ordinate per data di scadenza, con quelle più vicine alla scadenza visualizzate per prime. 
+               ---> !TODO TROVARE IL MODO DI RICEVERE LE ATTIVITÀ CON SCADENZA NULL PER ULTIME <------
 
     Aggiornamento delle Attività:
        [] Gli utenti possono segnare un'attività come completata o modificarne i dettagli come titolo, descrizione o data di scadenza.
@@ -25,14 +27,14 @@ Funzionalità Principali:
        [] Gli utenti possono eliminare un'attività dall'elenco.
 
     Ricerca di Attività:
-       [] Gli utenti possono cercare attività per titolo o data di scadenza.
+       [X] Gli utenti possono cercare attività per titolo.
 
     Filtri:
-       [] Gli utenti possono filtrare le attività per stato (completate/non completate) o data di scadenza.
+       [] Gli utenti possono filtrare le attività per stato (completate/non completate).
 
     Autenticazione e Sicurezza:
        [X] Le password degli utenti devono essere crittografate prima di essere memorizzate nel database.
-       [] Le rotte dell'applicazione devono essere protette, consentendo l'accesso solo agli utenti autenticati.
+       [X] Le rotte dell'applicazione devono essere protette, consentendo l'accesso solo agli utenti autenticati.
 
     Persistenza dei Dati:
 
@@ -51,6 +53,7 @@ Tecnologie Consigliate:
 
 ## Routes
 - register User (POST) ---- (=> RES {user})
+```json
     http://localhost:3333/api/auth/register
 {
     "firstName": "test",
@@ -58,23 +61,34 @@ Tecnologie Consigliate:
     "email": "test@hotmail.com",
     "password": "password"
 }
-
-
+```
 
 - login User (POST)  ---- (=> RES {user, token})
-
+```json
     http://localhost:3333/api/auth/login
 {
     "email": "test@hotmail.com",
     "password": "password"
 }
+```
 
 - create activity (POST) ---- (=> RES {activity})
-
+```json
    http://localhost:3333/api/auth/login
    ----- ADD USER TOKEN Authorization: token login
 {
-    "title": "test",
+    "title": "test-2",
     "status":"TODO",
-    "description":"descrizione test"  
+    "expirationDate":"2024-04-27T23:37:04.271Z",
+    "description":"descrizione test-12"  
 }
+```
+
+- all activities (GET) (=> RES {activities}) paginate 10
+    pageIndex (parte da 0 definisce la paginazione )
+    title (ritorna tutte le attività (sempre paginate per 10 elementi ) il cui titolo contiene cio che gli viene mandato)
+
+```json
+  http://localhost:3333/api/activities?pageIndex=1&title=prov  
+   ----- ADD USER TOKEN Authorization: token login
+```

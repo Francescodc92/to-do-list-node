@@ -24,10 +24,15 @@ Content-Type: application/json
 ###create Activities
 POST {{baseUrl}}/api/activities
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcxMjYxNzQ4OH0.BEfF4d1eoeyjHYNrPsz4OAU7qy7l8z80E7e6dd0YQ0s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY3MzUzMn0.-QKcZiGrrbnXzdEf6YWF0aGDNHLvT6-uESUF8SMYKeM
 
 {
-    "title": "test-2",
+    "title": "prov",
     "status":"TODO",
+    "expirationDate":"2024-06-25T23:37:04.271Z",
     "description":"descrizione test-12"  
 }
+
+###create Activities
+GET {{baseUrl}}/api/activities?pageIndex=1&title=prov
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY3MzUzMn0.-QKcZiGrrbnXzdEf6YWF0aGDNHLvT6-uESUF8SMYKeM
