@@ -21,10 +21,10 @@ Funzionalità Principali:
                ---> !TODO TROVARE IL MODO DI RICEVERE LE ATTIVITÀ CON SCADENZA NULL PER ULTIME <------
 
     Aggiornamento delle Attività:
-       [] Gli utenti possono segnare un'attività come completata o modificarne i dettagli come titolo, descrizione o data di scadenza.
+       [X] Gli utenti possono segnare un'attività come completata o modificarne i dettagli come titolo, descrizione o data di scadenza.
 
     Eliminazione delle Attività:
-       [] Gli utenti possono eliminare un'attività dall'elenco.
+       [X] Gli utenti possono eliminare un'attività dall'elenco.
 
     Ricerca di Attività:
        [X] Gli utenti possono cercare attività per titolo.
@@ -41,14 +41,16 @@ Funzionalità Principali:
     Utilizza un database per memorizzare le informazioni sugli utenti e sulle attività.
     Ad esempio, puoi utilizzare MongoDB per il database e Mongoose come ODM (Object Data Modeling).
 
-Tecnologie Consigliate:
-
-    Node.js e Express.js per la creazione del server backend.
-    TypeScript per una tipizzazione statica e migliorata.
-    MongoDB come database per la persistenza dei dati.
-    Mongoose come ODM per la gestione del database MongoDB.
-    bcrypt.js per la crittografia delle password degli utenti.
-    JWT (JSON Web Tokens) per l'autenticazione basata su token.
+Tecnologie:
+- PRISMA ORM
+- MYSQL DB
+- DOCKER (CREATE DB CONTAINER)
+- EXPRESS
+- NODEJS
+- TYPESCRIPT
+- ZOD (VALIDATION REQUEST DATA)
+- JWT (GENERATE AUTH TOKEN)
+- 
 
 
 ## Routes
