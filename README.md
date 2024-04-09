@@ -93,12 +93,22 @@ Tecnologie Consigliate:
    ----- ADD USER TOKEN Authorization: token login
 ```
 
-- all activities (GET) (=> RES {activities}) paginate 10
-    pageIndex (parte da 0 definisce la paginazione )
-    title (ritorna tutte le attività (sempre paginate per 10 elementi ) il cui titolo contiene cio che gli viene mandato)
+- find activity by ID (GET)
      ----- ADD USER TOKEN Authorization: token login
 
 ```json
   http://localhost:3333/api/activities/{activityId}   <--- assicurarsi che l'id dell'attività sia di una attività collegata all'utente altrimenti darà unauthorized
-   ----- ADD USER TOKEN Authorization: token login
+```
+
+- find activity by ID (PUT)
+     ----- ADD USER TOKEN Authorization: token login
+
+```json
+  http://localhost:3333/api/activities/{activityId}   <--- assicurarsi che l'id dell'attività sia di una attività collegata all'utente altrimenti darà unauthorized
+
+
+{
+    "title": "test update",
+}
+
 ```

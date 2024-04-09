@@ -16,7 +16,7 @@ POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "francesco2@hotmail.com",
+    "email": "francesco@hotmail.com",
     "password": "password"
 }
 
@@ -41,3 +41,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcx
 ###get Activity by id
 GET {{baseUrl}}/api/activities/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcxMjY3ODM5M30.IxFvTnUNG8ZSRCMWZE079GH423YZOQaBFy8Tp7KHKsQ
+
+
+###update Activity
+PUT  {{baseUrl}}/api/activities/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY3OTU4NH0.IxKacSlJCiqQybqW4PHLuGefSTvZUWrYFHBQOgFgiho
+Content-Type: application/json
+
+{
+    "title": "test update"
+
+}
