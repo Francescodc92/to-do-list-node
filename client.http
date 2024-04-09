@@ -7,16 +7,16 @@ Content-Type: application/json
 {
     "firstName": "francesco",
     "lastName" : "di corpo",
-    "email": "francesco@hotmail.com",
+    "email": "francesco2@hotmail.com",
     "password": "password"
 }
 
-###Register User
+###Login User
 POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "francesco@hotmail.com",
+    "email": "francesco2@hotmail.com",
     "password": "password"
 }
 
@@ -33,6 +33,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcx
     "description":"descrizione test-12"  
 }
 
-###create Activities
+###get All Activities
 GET {{baseUrl}}/api/activities?pageIndex=1&title=prov
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY3MzUzMn0.-QKcZiGrrbnXzdEf6YWF0aGDNHLvT6-uESUF8SMYKeM
+
+
+###get Activity by id
+GET {{baseUrl}}/api/activities/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcxMjY3ODM5M30.IxFvTnUNG8ZSRCMWZE079GH423YZOQaBFy8Tp7KHKsQ

@@ -1,6 +1,8 @@
-import {Request, Response} from 'express';
+import {NextFunction, Request, Response} from 'express';
 import { z }from 'zod';
 import { prisma } from '../lib/prisma';
+import { ErrorCode } from '../_errors/error-root';
+import { UnauthorizedException } from '../_errors/unauthorized';
 
 
 //Create Activity
@@ -72,4 +74,18 @@ export const getUserActivities = async (req:Request, res:Response) => {
 }
 
 
+// show Activity
+export const getUserActivityById = async (req:Request, res:Response, next:NextFunction) => {
+    const user = req.user!;
+    const id = Number(req.params.activityId);
 
+    const activity = await prisma.activity.findUnique({
+        where:{id}
+    })
+
+    if(activity?.userID !== user.id){
+        return next(new UnauthorizedException('Unauthorized!', ErrorCode.UNAUTHORIZED_EXCEPTION))
+    }
+
+    return res.status(200).json(activity);
+}
