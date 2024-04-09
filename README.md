@@ -112,3 +112,11 @@ Tecnologie Consigliate:
 }
 
 ```
+
+
+- delete activity (DELETE)
+     ----- ADD USER TOKEN Authorization: token login
+
+```json
+  http://localhost:3333/api/activities/{activityId}   <--- assicurarsi che l'id dell'attività sia di una attività collegata all'utente altrimenti darà unauthorized
+```

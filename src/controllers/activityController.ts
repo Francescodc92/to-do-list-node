@@ -96,7 +96,6 @@ export const getUserActivityById = async (req:Request, res:Response, next:NextFu
 }
 
 // update Activity
-
 export const updateUserActivity = async (req:Request, res:Response, next:NextFunction) => {
     const user = req.user!;
     const id = Number(req.params.activityId);
@@ -129,4 +128,32 @@ export const updateUserActivity = async (req:Request, res:Response, next:NextFun
     })
 
     return res.status(200).json(updateActivity);
+}
+
+
+// Delete Activity
+export const deleteUserActivity = async (req:Request, res:Response, next:NextFunction) => {
+    const user = req.user!;
+    const id = Number(req.params.activityId);
+
+
+    const activity = await prisma.activity.findUnique({
+        where:{id}
+    })
+
+    if(!activity){
+        return next(new NotFoundException('Activity not found!', ErrorCode.ACTIVITY_NOT_FOUND))
+    }
+
+    if(activity?.userID !== user.id){
+        return next(new UnauthorizedException('Unauthorized!', ErrorCode.UNAUTHORIZED_EXCEPTION))
+    }
+
+    await prisma.activity.delete({
+        where:{
+            id
+        }
+    })
+
+    return res.status(200).json({message: "Activity deleted successfully"});
 }

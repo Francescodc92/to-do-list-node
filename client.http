@@ -16,7 +16,7 @@ POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "francesco@hotmail.com",
+    "email": "francesco2@hotmail.com",
     "password": "password"
 }
 
@@ -52,3 +52,8 @@ Content-Type: application/json
     "title": "test update"
 
 }
+
+
+###delete Activity
+DELETE {{baseUrl}}/api/activities/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY4MDMwOH0.s5xODtBQWrc--3oLZC0-kyipVba-ofb5vWlhN7hzcwU
