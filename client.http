@@ -34,7 +34,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcx
 }
 
 ###get All Activities
-GET {{baseUrl}}/api/activities?pageIndex=1&title=prov
+GET {{baseUrl}}/api/activities?status=cancelled
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMjY3MzUzMn0.-QKcZiGrrbnXzdEf6YWF0aGDNHLvT6-uESUF8SMYKeM
 
 

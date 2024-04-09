@@ -8,7 +8,7 @@ Funzionalità Principali:
       [X]  Gli utenti devono poter registrarsi creando un account con un'email e una password.
       [X] Gli utenti registrati possono accedere all'applicazione utilizzando le loro credenziali.
 
-    Dashboard Principale:
+    Dashboard Principale: ---front-end
        [] Dopo l'accesso, gli utenti vengono reindirizzati a una dashboard principale dove 
        [] possono visualizzare i propri elenchi di attività.
 
@@ -30,7 +30,7 @@ Funzionalità Principali:
        [X] Gli utenti possono cercare attività per titolo.
 
     Filtri:
-       [] Gli utenti possono filtrare le attività per stato (completate/non completate).
+       [X] Gli utenti possono filtrare le attività per stato (completate/non completate).
 
     Autenticazione e Sicurezza:
        [X] Le password degli utenti devono essere crittografate prima di essere memorizzate nel database.
@@ -41,7 +41,7 @@ Funzionalità Principali:
     Utilizza un database per memorizzare le informazioni sugli utenti e sulle attività.
     Ad esempio, puoi utilizzare MongoDB per il database e Mongoose come ODM (Object Data Modeling).
 
-Tecnologie:
+Technologies:
 - PRISMA ORM
 - MYSQL DB
 - DOCKER (CREATE DB CONTAINER)
@@ -50,7 +50,6 @@ Tecnologie:
 - TYPESCRIPT
 - ZOD (VALIDATION REQUEST DATA)
 - JWT (GENERATE AUTH TOKEN)
-- 
 
 
 ## Routes
@@ -89,9 +88,9 @@ Tecnologie:
 - all activities (GET) (=> RES {activities}) paginate 10
     pageIndex (parte da 0 definisce la paginazione )
     title (ritorna tutte le attività (sempre paginate per 10 elementi ) il cui titolo contiene cio che gli viene mandato)
-
+    status (filter by status)
 ```json
-  http://localhost:3333/api/activities?pageIndex=1&title=prov  
+  http://localhost:3333/api/activities?pageIndex=1&title=prov&status=cancelled
    ----- ADD USER TOKEN Authorization: token login
 ```
 

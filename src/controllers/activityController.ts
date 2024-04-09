@@ -42,9 +42,10 @@ export const getUserActivities = async (req:Request, res:Response) => {
         title: z.string().nullish(),
         expirationDate: z.string().nullish(),
         pageIndex: z.string().nullish().default('0').transform(Number),
+        status: z.string().nullish().transform(s => s?.toUpperCase())
     });
 
-    let { title, pageIndex } = querystring.parse(req.query);
+    let { title, pageIndex, status } = querystring.parse(req.query);
     const user = req.user!;
 
     let whereClause: any = {
@@ -57,6 +58,13 @@ export const getUserActivities = async (req:Request, res:Response) => {
             title: {
                 contains: title
             }
+        };
+    }
+
+    if(status){        
+        whereClause = {
+            ...whereClause,
+            status: status
         };
     }
 
